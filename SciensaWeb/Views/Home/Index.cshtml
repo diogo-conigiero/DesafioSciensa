@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Sciensa Bank";
+}
+
+<div ng-controller="SciensaAppController" ng-init="refresh()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Sciensa Bank - Adicionar Cliente</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="col-xs-12 center-block">
+                    <div class="col-xs-6 form-group">
+                        <input id="txtNome" type="text" class="form-control" placeholder="Nome" ng-model="nome" />
+                        <input id="txtCPF" type="text" class="form-control" placeholder="CPF" ng-model="cpf" />
+                        <input id="txtEndereco" type="text" class="form-control" placeholder="Endereço" ng-model="endereco" />
+                    </div>
+                    <button id="btnAdd" class="btn btn-default" ng-click="addCliente(nome, cpf, endereco)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Adicionar Cliente
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Lista de Clientes Cadastrados
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-repeat="vote in votes.data">
+                    <div class="col-xs-8">
+                        <button class="btn btn-success text-left btn-block">                            
+                            <span class="badge pull-left">
+                                Nome: {{vote.value.nome}}
+                            </span>
+                            <span class="badge pull-left">
+                                CPF: {{vote.value.cpf}}
+                            </span>
+                            <span class="badge pull-left">
+                                Endereço: {{vote.value.endereco}}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Sciensa Bank - Contas</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="col-xs-12 center-block">
+                    <div class="col-xs-6 form-group">
+                        <input id="txtNomeCliente" type="text" class="form-control" placeholder="Nome do Cliente" ng-model="NomeCliente" />
+                        <input id="txtNumeroConta" type="text" class="form-control" placeholder="Número da Conta" ng-model="NumeroConta" />
+                        <input id="txtTipoConta" type="text" class="form-control" placeholder="Tipo da Conta" ng-model="TipoConta" />
+                        <input id="txtSaldoConta" type="text" class="form-control" placeholder="Saldo da Conta" ng-model="SaldoConta" />
+                    </div>
+                    <button id="btnListConta" class="btn btn-default" ng-click="listConta(NomeCliente)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Listar Contas
+                    </button>
+                    <button id="btnAddConta" class="btn btn-default" ng-click="addConta(NomeCliente, NumeroConta, TipoConta, SaldoConta)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Adicionar conta
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-12 col-xs-offset-2">
+                <div class="row">
+                    <div class="col-xs-6">
+                        Lista das Contas dos Clientes
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-repeat="conta in contas.data">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success text-left btn-block">
+                            <span class="badge pull-left">
+                                Nome do Cliente: {{conta.value.nomeCliente}}
+                            </span>
+                            <span class="badge pull-left">
+                                Número da Conta: {{conta.value.numeroConta}}
+                            </span>
+                            <span class="badge pull-left">
+                                Tipo: {{conta.value.tipoConta}}
+                            </span>
+                            <span class="badge pull-left">
+                                Saldo: {{conta.value.saldoConta}}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
