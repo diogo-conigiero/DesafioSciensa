@@ -47,6 +47,7 @@ namespace SciensaData.Controllers
         [HttpPut("{nome}/{cpf}/{endereco}")]
         public async Task<IActionResult> Put(string nome, string cpf, string endereco)
         {
+            //método pra adicionar novo cliente
             var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<int, Cliente>>("SciensaBank_Clientes");
 
             using (ITransaction tx = this.stateManager.CreateTransaction())
